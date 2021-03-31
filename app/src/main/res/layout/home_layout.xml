@@ -14,7 +14,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/fugaz_one"
-        android:text="Spicy Food"
+        android:text="@string/spicy_food"
         android:textColor="@color/white"
         android:textSize="28sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/fugaz_one"
-        android:text="Made for you"
+        android:text="@string/made_for_you"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/textView3"
@@ -62,31 +62,55 @@
         app:layout_constraintTop_toTopOf="@+id/imageButton4"
         app:srcCompat="@drawable/ic_action_notification_icon" />
 
-    <ImageView
+    <LinearLayout
         android:id="@+id/home_search_food"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        android:transitionName="t_search"
+        android:onClick="sendToSearch"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="25dp"
+        android:background="@drawable/round_corner_shadow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hamburger"
-        app:srcCompat="@drawable/search_bg" />
+         >
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            app:srcCompat="@android:drawable/ic_search_category_default" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/search_for_food_item"
+            android:textSize="18sp" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Trending this week"
+        android:layout_marginTop="16dp"
+        android:text="@string/trending_this_week"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/home_search_food"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home_search_food" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="250dp"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,7 +128,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Popular Food"
+        android:text="@string/popular_food"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"

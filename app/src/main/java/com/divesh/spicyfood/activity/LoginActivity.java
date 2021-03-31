@@ -26,14 +26,6 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Build.VERSION.SDK_INT < 16) {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        } else {
-            View decorView = getWindow().getDecorView();
-            int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-            decorView.setSystemUiVisibility(uiOptions);
-        }
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -70,71 +62,75 @@ public class LoginActivity extends AppCompatActivity {
     }
         //move to home activity
     public void onLoginClick(View view) {
-        String email = binding.emailInput.getEditText().getText().toString();
-        String password = binding.passwordInput.getEditText().getText().toString();
+        try {
+            String email = binding.emailInput.getEditText().getText().toString();
+            String password = binding.passwordInput.getEditText().getText().toString();
 
-        if (email.isEmpty()){
-            binding.emailInput.setError("Please enter email!");
-            return;
-        }else if (password.isEmpty()){
-            binding.passwordInput.setError("Enter Password!");
-            return;
-        }else {
-                    if (database.checkUser(email,password)){
-                        Intent homeIntent = new Intent(LoginActivity.this, HomeActivity.class);
-                        startActivity(homeIntent);
-                        finish();
-                    }else {
-                        Toast.makeText(this,"Check email or password",Toast.LENGTH_SHORT).show();
-                    }
+            if (email.isEmpty()){
+                binding.emailInput.setError("Please enter email!");
+            }else if (password.isEmpty()){
+                binding.passwordInput.setError("Enter Password!");
+            }else {
+                if (database.checkUser(email,password)){
+                    sessionManager = new SessionManager(this);
+                    sessionManager.setLogin(true);
+                    Intent homeIntent = new Intent(LoginActivity.this, HomeActivity.class);
+                    startActivity(homeIntent);
+                    finish();
+                }else {
+                    Toast.makeText(this,"Check email or password",Toast.LENGTH_SHORT).show();
+                }
 
+            }
+        }catch (Exception e){
+            Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
         }
+
     }
 
     public void onClickSignUp(View view) {
         binding.signupViewBtn.setEnabled(false);
-        String email = binding.registerEmail.getEditText().getText().toString();
-        String password = binding.registerPassword.getEditText().getText().toString();
-        String confPassword = binding.registerConfirmPassword.getEditText().getText().toString();
+        try {
+            String email = binding.registerEmail.getEditText().getText().toString();
+            String password = binding.registerPassword.getEditText().getText().toString();
+            String confPassword = binding.registerConfirmPassword.getEditText().getText().toString();
 
-        if (email.isEmpty()){
-            binding.registerEmail.setError("Email can not be empty!");
-            binding.signupViewBtn.setEnabled(true);
-            return;
-        }else if (password.isEmpty()){
-            binding.registerPassword.setError("Password can not be empty!");
-            binding.signupViewBtn.setEnabled(true);
-            return;
-        }else if (confPassword.isEmpty()){
-            binding.registerConfirmPassword.setError("field can not be empty!");
-            binding.signupViewBtn.setEnabled(true);
-            return;
-        }else if (!email.matches(emailPattern)){
-            binding.registerEmail.setError("Enter a valid email!");
-            binding.signupViewBtn.setEnabled(true);
-            return;
-        }else if (password.length() < 6){
+            if (email.isEmpty()){
+                binding.registerEmail.setError("Email can not be empty!");
+                binding.signupViewBtn.setEnabled(true);
+            }else if (password.isEmpty()){
+                binding.registerPassword.setError("Password can not be empty!");
+                binding.signupViewBtn.setEnabled(true);
+            }else if (confPassword.isEmpty()){
+                binding.registerConfirmPassword.setError("field can not be empty!");
+                binding.signupViewBtn.setEnabled(true);
+            }else if (!email.matches(emailPattern)){
+                binding.registerEmail.setError("Enter a valid email!");
+                binding.signupViewBtn.setEnabled(true);
+            }else if (password.length() < 6){
                 binding.registerPassword.setError("at least 6 character's password is required!.");
-            binding.signupViewBtn.setEnabled(true);
-            return;
-        }else if (!password.equals(confPassword)){
+                binding.signupViewBtn.setEnabled(true);
+            }else if (!password.equals(confPassword)){
                 binding.registerConfirmPassword.setError("Passwords are not matching!");
-            binding.signupViewBtn.setEnabled(true);
-            return;
-        }else {
-              database = new OfflineDatabase(this);
-              boolean result = database.saveUserToDatabase("",email,"",password);
+                binding.signupViewBtn.setEnabled(true);
+            }else {
+                database = new OfflineDatabase(this);
+                boolean result = database.saveUserToDatabase("",email,"",password);
 
-              if (result){
-                  sessionManager = new SessionManager(this);
-                  sessionManager.Savedinsharedpref(email);
-                  Intent homeIntent = new Intent(LoginActivity.this, HomeActivity.class);
-                  startActivity(homeIntent);
-                  finish();
-              }else {
-                  Toast.makeText(this,"Try Again!",Toast.LENGTH_SHORT).show();
-                  binding.signupViewBtn.setEnabled(true);
-              }
+                if (result){
+                    sessionManager = new SessionManager(this);
+                    sessionManager.Savedinsharedpref(email);
+                    Intent homeIntent = new Intent(LoginActivity.this, HomeActivity.class);
+                    startActivity(homeIntent);
+                    finish();
+                }else {
+                    Toast.makeText(this,"Try Again!",Toast.LENGTH_SHORT).show();
+                    binding.signupViewBtn.setEnabled(true);
+                }
+            }
+        }catch (Exception e){
+            Toast.makeText(LoginActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
         }
+
     }
 }

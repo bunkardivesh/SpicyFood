@@ -54,7 +54,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 if (query.equals("")){
-                    foodAdapter.updateData(new ArrayList<FoodModel>());
+                    foodAdapter.updateData(new ArrayList<>());
                 }else {
                     binding.searchProgressBar.setVisibility(View.VISIBLE);
                     searchData(query);
@@ -68,12 +68,7 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
-        binding.searchBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        binding.searchBackButton.setOnClickListener(v -> onBackPressed());
 
     }
 
@@ -91,7 +86,7 @@ public class SearchActivity extends AppCompatActivity {
         }else {
             binding.textNotFound.setVisibility(View.VISIBLE);
         }
-        copiedList = new ArrayList<FoodModel>(newList);
+        copiedList = new ArrayList<>(newList);
         newList.clear();
         binding.searchProgressBar.setVisibility(View.INVISIBLE);
     }
@@ -103,13 +98,7 @@ public class SearchActivity extends AppCompatActivity {
         searchRV.setLayoutManager(layoutManager);
         searchRV.setNestedScrollingEnabled(false);
 
-        foodAdapter = new TrendingFoodAdapter(this, new ArrayList<>(), new RecyclerViewClickListener() {
-            @Override
-            public void onClick(int position) {
-
-                sendToFoodDetailActivity(copiedList,position);
-            }
-        });
+        foodAdapter = new TrendingFoodAdapter(this, new ArrayList<>(), (position, view) -> sendToFoodDetailActivity(copiedList,position));
         searchRV.setAdapter(foodAdapter);
 
     }
@@ -122,7 +111,7 @@ public class SearchActivity extends AppCompatActivity {
             AllFoodList = DemoData.getFoodData(this,"alldata");
 
         }catch (Exception e){
-            Toast.makeText(this,e.getMessage().toString(),Toast.LENGTH_LONG).show();
+            Toast.makeText(this, e.getMessage(),Toast.LENGTH_LONG).show();
             finish();
         }
     }

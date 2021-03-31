@@ -2,14 +2,10 @@ package com.divesh.spicyfood.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
-import android.view.Menu;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.divesh.spicyfood.Model.FoodModel;
 import com.divesh.spicyfood.R;
@@ -20,19 +16,11 @@ import com.divesh.spicyfood.Utility.ZoomCardLayoutManager;
 import com.divesh.spicyfood.adapter.PopularFoodAdapter;
 import com.divesh.spicyfood.adapter.TrendingFoodAdapter;
 import com.divesh.spicyfood.databinding.ActivityHomeBinding;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.view.GravityCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -48,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
     private List<FoodModel> trendingList;
     private TrendingFoodAdapter trendingFoodAdapter;
     private PopularFoodAdapter popularFoodAdapter;
-    private ImageView mSearch;
+    private LinearLayout mSearch;
     private SessionManager sessionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +48,6 @@ public class HomeActivity extends AppCompatActivity {
         setUpRecyclerView();
         setTrendingData();
         setPopularData();
-        intentMethods();
 
         //managing the drawer layout
         binding.drawerLayout.setScrimColor(Color.TRANSPARENT);
@@ -82,13 +69,10 @@ public class HomeActivity extends AppCompatActivity {
         binding.drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        binding.tvLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sessionManager = new SessionManager(HomeActivity.this);
-                sessionManager.logoutUser();
-                finish();
-            }
+        binding.tvLogout.setOnClickListener(v -> {
+            sessionManager = new SessionManager(HomeActivity.this);
+            sessionManager.logoutUser();
+            finish();
         });
     }
 
@@ -113,22 +97,19 @@ public class HomeActivity extends AppCompatActivity {
         trendingList = new ArrayList<>();
         trendingList = DemoData.getFoodData(this,"recommended");
 
-        trendingFoodAdapter = new TrendingFoodAdapter(this, trendingList, new RecyclerViewClickListener() {
-            @Override
-            public void onClick(int position) {
-                sendToFoodDetailActivity(trendingList,position);
-            }
-        });
+        trendingFoodAdapter = new TrendingFoodAdapter(this, trendingList, (position, view) -> sendToFoodDetailActivity(trendingList,position, view));
         trendingRV.setAdapter(trendingFoodAdapter);
 
     }
 
-    private void sendToFoodDetailActivity(List<FoodModel> foodModelList, int position) {
+    private void sendToFoodDetailActivity(List<FoodModel> foodModelList, int position, View view) {
 
         Intent foodIntent = new Intent(HomeActivity.this,FoodDetailActivity.class);
         foodIntent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) foodModelList);
         foodIntent.putExtra("position",position);
-        startActivity(foodIntent);
+        ActivityOptionsCompat options = ActivityOptionsCompat.
+                makeSceneTransitionAnimation(HomeActivity.this, view, "foodimage");
+        startActivity(foodIntent, options.toBundle());
     }
 
     private void setPopularData() {
@@ -136,27 +117,21 @@ public class HomeActivity extends AppCompatActivity {
         foodModelList = new ArrayList<>();
         foodModelList = DemoData.getFoodData(this,"popular");
 
-        popularFoodAdapter = new PopularFoodAdapter(this, foodModelList, new RecyclerViewClickListener() {
-            @Override
-            public void onClick(int position) {
-                sendToFoodDetailActivity(foodModelList,position);
-            }
-        });
+        popularFoodAdapter = new PopularFoodAdapter(this, foodModelList, (position, view) -> sendToFoodDetailActivity(foodModelList,position, view));
         popularRV.setAdapter(popularFoodAdapter);
     }
     //handle drawer button click
     public void onHamburgerClick(View view) {
         binding.drawerLayout.openDrawer(GravityCompat.START);
     }
-    private void intentMethods() {
+    public void sendToSearch(View view) {
 
         mSearch = binding.appBarMain.homeLayout.homeSearchFood;
-        mSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent searchIntent = new Intent(HomeActivity.this,SearchActivity.class);
-                startActivity(searchIntent);
-            }
+        mSearch.setOnClickListener(v -> {
+            Intent searchIntent = new Intent(HomeActivity.this,SearchActivity.class);
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(HomeActivity.this, view, "t_search");
+
+            startActivity(searchIntent,options.toBundle());
         });
 
 

@@ -48,58 +48,50 @@ public class PopularFoodAdapter extends RecyclerView.Adapter<PopularFoodAdapter.
 
         holder.foodName.setText(foodList.get(position).getFoodName());
         holder.foodPrice.setText(String.valueOf(foodList.get(position).getPrice()));
-        holder.foodRating.setRating(Float.valueOf(foodList.get(position).getRating().toString()));
+        holder.foodRating.setRating(Float.parseFloat(foodList.get(position).getRating().toString()));
 
         String imgurl = foodList.get(position).getImageUrl();
         Picasso.get().load(imgurl).into(holder.foodImage);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onClick(position);
-            }
-        });
+        holder.itemView.setOnClickListener(v -> listener.onClick(position, holder.foodImage));
 
-        holder.addToCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        holder.addToCart.setOnClickListener(v -> {
 
-                String itemname = foodList.get(position).getFoodName();
+            String itemname = foodList.get(position).getFoodName();
+
+            Bitmap src = ((BitmapDrawable) holder.foodImage.getDrawable()).getBitmap();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            src.compress(Bitmap.CompressFormat.PNG, 100, baos);
+            byte[] pimage = baos.toByteArray();
+
+            boolean result = Utility.saveToCart(context,v,itemname,String.valueOf(foodList.get(position).getPrice()),"1",pimage,
+                    foodList.get(position).getFoodDesc());
+
+
+          /*  if (offlineDatabase.CheckIfNameExist(itemname)){
+                Snackbar.make(v, "Item already exists in your cart!", Snackbar.LENGTH_SHORT).show();
+            }else {
 
                 Bitmap src = ((BitmapDrawable) holder.foodImage.getDrawable()).getBitmap();
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 src.compress(Bitmap.CompressFormat.PNG, 100, baos);
                 byte[] pimage = baos.toByteArray();
 
-                boolean result = Utility.saveToCart(context,v,itemname,String.valueOf(foodList.get(position).getPrice()),"1",pimage,
-                        foodList.get(position).getFoodDesc());
 
+                boolean response = offlineDatabase.addtoCart(itemname,String.valueOf(foodList.get(position).getPrice()),"1",pimage
+                        ,foodList.get(position).getFoodDesc());
 
-              /*  if (offlineDatabase.CheckIfNameExist(itemname)){
-                    Snackbar.make(v, "Item already exists in your cart!", Snackbar.LENGTH_SHORT).show();
+                if (response){
+                    Snackbar snackbar = Snackbar.make(v, "Item Added To Cart", Snackbar.LENGTH_SHORT);
+                    snackbar.getView().setBackgroundColor(ContextCompat.getColor(context, R.color.green));
+                    snackbar.show();
+
                 }else {
-
-                    Bitmap src = ((BitmapDrawable) holder.foodImage.getDrawable()).getBitmap();
-                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                    src.compress(Bitmap.CompressFormat.PNG, 100, baos);
-                    byte[] pimage = baos.toByteArray();
-
-
-                    boolean response = offlineDatabase.addtoCart(itemname,String.valueOf(foodList.get(position).getPrice()),"1",pimage
-                            ,foodList.get(position).getFoodDesc());
-
-                    if (response){
-                        Snackbar snackbar = Snackbar.make(v, "Item Added To Cart", Snackbar.LENGTH_SHORT);
-                        snackbar.getView().setBackgroundColor(ContextCompat.getColor(context, R.color.green));
-                        snackbar.show();
-
-                    }else {
-                        Toast.makeText(context, "Error: Try Again", Toast.LENGTH_SHORT).show();
-                    }
-
+                    Toast.makeText(context, "Error: Try Again", Toast.LENGTH_SHORT).show();
                 }
-*/            }
-        });
+
+            }
+*/            });
     }
 
     @Override
@@ -117,11 +109,11 @@ public class PopularFoodAdapter extends RecyclerView.Adapter<PopularFoodAdapter.
         public ItemHolder(@NonNull View itemView) {
             super(itemView);
 
-            foodImage = (ImageView) itemView.findViewById(R.id.cart_image);
-            foodName = (TextView) itemView.findViewById(R.id.foodname_rv);
-            foodPrice = (TextView) itemView.findViewById(R.id.food_price_rv);
-            foodRating = (RatingBar) itemView.findViewById(R.id.food_rating_rv);
-            addToCart = (ImageButton) itemView.findViewById(R.id.add_to_car_rv);
+            foodImage = itemView.findViewById(R.id.cart_image);
+            foodName = itemView.findViewById(R.id.foodname_rv);
+            foodPrice = itemView.findViewById(R.id.food_price_rv);
+            foodRating = itemView.findViewById(R.id.food_rating_rv);
+            addToCart = itemView.findViewById(R.id.add_to_car_rv);
         }
     }
 }
