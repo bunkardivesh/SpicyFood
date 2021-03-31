@@ -20,11 +20,7 @@ Purpose of this application is to provide fecility so that user can get the food
 - Payment Gateway.
 
 **Demo**
-![](demo/demo1.jpg)
-![](demo/demo2.jpg)
-![](demo/demo3.jpg)
-![](demo/demo4.jpg)
-![](demo/demo5.jpg)
-![](demo/demo6.jpg)
+![](demo/demo1.jpg) ![](demo/demo2.jpg) ![](demo/demo3.jpg)
+![](demo/demo4.jpg) ![](demo/demo5.jpg) ![](demo/demo6.jpg)
 ![](demo/demo7.jpg)
 
