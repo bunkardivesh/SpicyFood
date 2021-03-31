@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.divesh.spicyfood">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SpicyFood">
+        <activity android:name=".activity.WishListActivity"
+            android:theme="@style/Theme.SpicyFood.NoActionBar"></activity>
+        <activity android:name=".activity.ProfileActivity"
+            android:theme="@style/Theme.SpicyFood.NoActionBar"/>
+        <activity
+            android:name=".activity.CartActivity"
+            android:theme="@style/Theme.SpicyFood.NoActionBar" />
+        <activity android:name=".activity.OrderActivity" />
+        <activity
+            android:name=".activity.SearchActivity"
+            android:theme="@style/Theme.SpicyFood.NoActionBar" />
+        <activity
+            android:name=".activity.FoodDetailActivity"
+            android:theme="@style/Theme.SpicyFood.NoActionBar" />
+        <activity
+            android:name=".activity.HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/Theme.SpicyFood.NoActionBar" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:theme="@style/loginTheme" />
+        <activity
+            android:name=".activity.SplashActivity"
+            android:theme="@style/splashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,215 @@
+{
+    "popular": [
+      {
+        "name": "Mattar Paneer",
+        "imageUrl": "file:///android_asset/mattarpaneer.webp",
+        "rating": "5.0",
+        "deliveryTime": "45 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "150",
+        "note": "Matar Paneer is an extremely popular vegetarian North Indian curry dish made of paneer(Indian cottage cheese) and Matar (green peas) in a creamy, spicy onion-tomato base gravy. It can be served with rice as well as naan or paratha or roti."
+      },
+      {
+        "name": "Greek Salad",
+        "imageUrl": "file:///android_asset/greeksalad.webp",
+        "rating": "4.9",
+        "deliveryTime": "35 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "130",
+        "note": "This easy Greek salad recipe is our new favorite summer side dish! Just 7 ingredients + a simple Greek salad dressing make it refreshing & delicious."
+      },
+      {
+        "name": "Fruit Salad",
+        "imageUrl": "file:///android_asset/fruitsalad.webp",
+        "rating": "4.5",
+        "deliveryTime": "55 mins",
+        "deliveryCharges": "Delivery charges 50 extra",
+        "price": "199",
+        "note": "Fruit salad is a dish consisting of various kinds of fruit, sometimes served in a liquid, either their own juices or a syrup. In different forms, fruit salad can be served as an appetizer, a side salad, or a dessert."
+      },
+      {
+        "name": "Juice Caesar Salad",
+        "imageUrl": "file:///android_asset/juicecaesarsalad.webp",
+        "rating": "4.0",
+        "deliveryTime": "35 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "150",
+        "note": "A Caesar salad (also spelled Cesar and Cesare) is a green salad of romaine lettuce and croutons dressed with lemon juice (or lime juice), olive oil, egg, Worcestershire sauce, anchovies, garlic, Dijon mustard, Parmesan cheese, and black pepper."
+      },
+      {
+        "name": "Hyedrabadi Biryani",
+        "imageUrl": "file:///android_asset/biryani.webp",
+        "rating": "3.8",
+        "deliveryTime": "25 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "150",
+        "note": "Hyderabadi biryani, also known as Hyderabadi dum biryani, is a style of biryani from Hyderabad, India made with basmati rice and goat meat and cooked with the dum pukht method. Originating in the kitchens of the Nizam of Hyderabad, it combines elements of Hyderabadi and Mughlai cuisines."
+      }
+    ],
+    "recommended": [
+      {
+        "name": "Indian Cuisine Thali",
+        "imageUrl": "file:///android_asset/indianthali.webp",
+        "rating": "4.9",
+        "deliveryTime": "35 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "250",
+        "note": "They include curries, mixed vegetables, curd rice and sticky rice puddings. It even offers munchings such as Banana Chips, Chakli and Onion rings. Each dish on its own is a culinary specialty and this Thali is an adventure in itself!"
+      },
+      {
+        "name": "Spinach Salad",
+        "imageUrl": "file:///android_asset/spinachsalad.webp",
+        "rating": "5.0",
+        "deliveryTime": "45 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "150",
+        "note": "This simple spinach salad is the perfect accompaniment to pretty much anything. We're all about sharp mustard vinaigrette paired with creamy feta and toasted almonds, but you can swap in your favorite cheese and nuts if you like!"
+      },
+      {
+        "name": "Sausage Pizza",
+        "imageUrl": "file:///android_asset/sausagepizza.webp",
+        "rating": "4.0",
+        "deliveryTime": "15 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "199",
+        "note": "One such variant of everyone's much loved dish is Sausage Pizza. Sausage Pizza is a unique delicacy with a tangy mix of a variety of ingredients."
+      }
+    ],
+    "alldata": [
+      {
+        "name": "Dal Makhani",
+        "imageUrl": "file:///android_asset/dalmakhani.webp",
+        "rating": "5.0",
+        "deliveryTime": "45 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "150",
+        "note": "Creamy and buttery Dal Makhani is one of India's most loved dal! This dal has whole black lentils cooked with butter and cream and simmered on low heat for that unique flavor."
+      },
+      {
+        "name": "Noodels",
+        "imageUrl": "file:///android_asset/noodels.webp",
+        "rating": "4.9",
+        "deliveryTime": "35 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "100",
+        "note": "Noodles are a type of food made from unleavened dough which is rolled flat and cut, stretched or extruded, into long strips or strings."
+      },
+      {
+        "name": "Italian Cuisine Pasta",
+        "imageUrl": "file:///android_asset/italianpasta.webp",
+        "rating": "4.5",
+        "deliveryTime": "45 mins",
+        "deliveryCharges": "Delivery charges 50 extra",
+        "price": "199",
+        "note": "Fresh pasta is usually locally made with fresh ingredients unless it is destined to be shipped, in which case consideration is given to the spoilage rates of the desired ingredients such as eggs or herbs."
+      },
+      {
+        "name": "Rajma Gravy Vegetarian",
+        "imageUrl": "file:///android_asset/rajmagravy.webp",
+        "rating": "3.8",
+        "deliveryTime": "25 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "150",
+        "note": "This Rajma recipe is a creamy, tangy and spiced curry made with dried kidney beans. This restaurant style Rajma Masala is made in a base of sautéed onions, tomatoes, spices and cream making it truly delicious."
+      },
+      {
+        "name": "Paneer Tikka Masala",
+        "imageUrl": "file:///android_asset/paneertikkamasala.webp",
+        "rating": "4.9",
+        "deliveryTime": "35 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "250",
+        "note": "This restaurant style Paneer Tikka Masala recipe is brimming with bright flavors from the spiced tomato onion curry sauce and delightfully marinated grilled cottage cheese. While this dish may be considered a labor of love, the time and effort are well worth it!"
+      },
+      {
+        "name": "Margherita Pizza",
+        "imageUrl": "file:///android_asset/margheritapizza.webp",
+        "rating": "5.0",
+        "deliveryTime": "35 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "150",
+        "note": "Margherita Pizza is made with tomato sauce or marinara as the base sauce on the crust."
+      },
+      {
+        "name": "Masala Dosa",
+        "imageUrl": "file:///android_asset/masaladosa.webp",
+        "rating": "4.0",
+        "deliveryTime": "25 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "150",
+        "note": "Masala Dosa is a thin crisp dosa, consumed with a spicy potato sabji. Masala Dosa is made from rice, potato, methi, curry leaves and served with Chutneys and Sambar."
+      },
+      {
+        "name": "Mattar Paneer",
+        "imageUrl": "file:///android_asset/mattarpaneer.webp",
+        "rating": "5.0",
+        "deliveryTime": "45 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "150",
+        "note": "Matar Paneer is an extremely popular vegetarian North Indian curry dish made of paneer(Indian cottage cheese) and Matar (green peas) in a creamy, spicy onion-tomato base gravy. It can be served with rice as well as naan or paratha or roti."
+      },
+      {
+        "name": "Greek Salad",
+        "imageUrl": "file:///android_asset/greeksalad.webp",
+        "rating": "4.9",
+        "deliveryTime": "35 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "130",
+        "note": "This easy Greek salad recipe is our new favorite summer side dish! Just 7 ingredients + a simple Greek salad dressing make it refreshing & delicious."
+      },
+      {
+        "name": "Fruit Salad",
+        "imageUrl": "file:///android_asset/fruitsalad.webp",
+        "rating": "4.5",
+        "deliveryTime": "55 mins",
+        "deliveryCharges": "Delivery charges 50 extra",
+        "price": "199",
+        "note": "Fruit salad is a dish consisting of various kinds of fruit, sometimes served in a liquid, either their own juices or a syrup. In different forms, fruit salad can be served as an appetizer, a side salad, or a dessert."
+      },
+      {
+        "name": "Juice Caesar Salad",
+        "imageUrl": "file:///android_asset/juicecaesarsalad.webp",
+        "rating": "4.0",
+        "deliveryTime": "35 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "150",
+        "note": "A Caesar salad (also spelled Cesar and Cesare) is a green salad of romaine lettuce and croutons dressed with lemon juice (or lime juice), olive oil, egg, Worcestershire sauce, anchovies, garlic, Dijon mustard, Parmesan cheese, and black pepper."
+      },
+      {
+        "name": "Hyedrabadi Biryani",
+        "imageUrl": "file:///android_asset/biryani.webp",
+        "rating": "3.8",
+        "deliveryTime": "25 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "150",
+        "note": "Hyderabadi biryani, also known as Hyderabadi dum biryani, is a style of biryani from Hyderabad, India made with basmati rice and goat meat and cooked with the dum pukht method. Originating in the kitchens of the Nizam of Hyderabad, it combines elements of Hyderabadi and Mughlai cuisines."
+      },
+      {
+        "name": "Indian Cuisine Thali",
+        "imageUrl": "file:///android_asset/indianthali.webp",
+        "rating": "4.9",
+        "deliveryTime": "35 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "250",
+        "note": "They include curries, mixed vegetables, curd rice and sticky rice puddings. It even offers munchings such as Banana Chips, Chakli and Onion rings. Each dish on its own is a culinary specialty and this Thali is an adventure in itself!"
+      },
+      {
+        "name": "Spinach Salad",
+        "imageUrl": "file:///android_asset/spinachsalad.webp",
+        "rating": "5.0",
+        "deliveryTime": "45 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "150",
+        "note": "This simple spinach salad is the perfect accompaniment to pretty much anything. We're all about sharp mustard vinaigrette paired with creamy feta and toasted almonds, but you can swap in your favorite cheese and nuts if you like!"
+      },
+      {
+        "name": "Sausage Pizza",
+        "imageUrl": "file:///android_asset/sausagepizza.webp",
+        "rating": "4.0",
+        "deliveryTime": "15 mins",
+        "deliveryCharges": "Free Delivery",
+        "price": "199",
+        "note": "One such variant of everyone's much loved dish is Sausage Pizza. Sausage Pizza is a unique delicacy with a tangy mix of a variety of ingredients."
+      }
+    ]
+  }
