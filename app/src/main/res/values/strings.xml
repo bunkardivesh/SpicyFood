@@ -16,4 +16,13 @@
 food item please contact our helpline immediately.</string>
 
     <string name="welcome">Welcome Back</string>
+    <string name="sample_name">Mattar Paneer</string>
+    <string name="sample_price">160</string>
+    <string name="search_food">Search Food</string>
+    <string name="not_found">Not Found</string>
+    <string name="spicy_food">Spicy Food</string>
+    <string name="made_for_you">Made for you</string>
+    <string name="search_for_food_item">Search for food item…</string>
+    <string name="trending_this_week">Trending this week</string>
+    <string name="popular_food">Popular Food</string>
 </resources>
