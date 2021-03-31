@@ -5,19 +5,19 @@ This is a food order app, where user can see the details of food and order onlin
 Purpose of this application is to provide fecility so that user can get the food directly at their home.
 
 **Features**
--Login/Logout.
--Display Food List.
--Display in Categories.
--Food Detail.
--Add to Cart.
--Search Specific Food Item.
+- Login/Logout.
+- Display Food List.
+- Display in Categories.
+- Food Detail.
+- Add to Cart.
+- Search Specific Food Item.
 
 **Features yet to add**
--Profile.
--Track Order.
--Order History.
--WishList.
--Payment Gateway.
+- Profile.
+- Track Order.
+- Order History.
+- WishList.
+- Payment Gateway.
 
 **Demo**
 ![](demo/demo1.jpg)
